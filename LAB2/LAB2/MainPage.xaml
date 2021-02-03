@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LAB2.MainPage" Title="Anketni listić" >
+
+    <StackLayout Orientation="Vertical">
+        <Image HeightRequest="200" Margin="0,-10,0,-10" Source="https://canadianassociationofmoldmakers.com/wp-content/uploads/2020/03/survey.jpg"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="130"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Frame x:Name="Okvir1"
+                   BackgroundColor="LightGray">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Frame1Tap" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Label Text="{Binding ListaAnketa[0].Naziv}"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+             
+            </Frame>
+            
+            
+            <Frame x:Name="Okvir2"
+                   Grid.Column="1"
+                   BackgroundColor="LightGray" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Frame2Tap" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                         <Label Grid.Column="1"
+                                Text="{Binding ListaAnketa[1].Naziv}"
+                                HorizontalOptions="Center"
+                                FontAttributes="Bold"
+                                 VerticalOptions="Center" />
+            </Frame>
+            
+            
+            
+            <Frame x:Name="Okvir3" Grid.Row="1"
+                 BackgroundColor="LightGray">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Frame3Tap" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                    <Label Grid.Row="1"
+                           Text="{Binding ListaAnketa[2].Naziv}"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center" />
+            </Frame>
+            
+            
+            <Frame x:Name="Okvir4"  Grid.Row="1"
+                 Grid.Column="1"
+                 BackgroundColor="LightGray">
+                    <Frame.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="Frame4Tap" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                        <Label Grid.Row="1"
+                               FontAttributes="Bold"
+                               Grid.Column="1"
+                               Text="{Binding ListaAnketa[3].Naziv}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+            </Frame>
+        </Grid>
+        <StackLayout Orientation="Vertical">
+            <Label x:Name="Labela" IsVisible="False"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="#f0a446"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+            <Label x:Name="LabelaDatum" IsVisible="False"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="#f0a446"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button x:Name="Dugme" Clicked="DugmeClicked" IsVisible="False" Text="ISPUNI" HorizontalOptions="Center" HeightRequest="80" WidthRequest="170"/>
+            
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

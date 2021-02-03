@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LAB2.Models.Ank3" Title="Anketa 3 - Ecology survey">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+
+            <!--da/ne pitanje-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -10, 0, -10">
+                    <Picker x:Name="DaNePicker3" Title="1. Da li ste zadovoljni ekološkim izgledom okoline? (*)" TitleColor="DarkGray" ItemsSource="{Binding ListaPitanja5}" ItemDisplayBinding="{Binding Odgovor}" SelectedItem="{Binding Pitanja}" />
+                    <Label BindingContext="{x:Reference Name=DaNePicker3}" Text="{Binding Path=SelectedItem.Odgovor, StringFormat='1. Da li ste zadovoljni ekološkim izgledom okoline? {0}'}" FontAttributes="Bold"/>
+
+                </StackLayout>
+            </Frame>
+            <!--odaberi abcd pitanje-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -20, 0, -10" >
+                    <Picker x:Name="AbcdPicker3" Title="2. Koliko često reciklirate? (*)" TitleColor="DarkGray" ItemsSource="{Binding ListaPitanja6}" ItemDisplayBinding="{Binding Abcd}" SelectedItem="{Binding Pitanja}"/>
+                    <Label BindingContext="{x:Reference Name=AbcdPicker3}" Text="{Binding Path=SelectedItem.Abcd, StringFormat='2. Koliko često reciklirate? {0}'}" FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+            <!--ocijeni slider-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -16,0,-10">
+                    <Label Margin="3,0,0,0" Text="3. Ocijenite izgled vaše okoline od 1 do 10: " TextColor="DarkGray" FontSize="18"/>
+
+                    <Slider x:Name="OcijeniSlider3" Maximum="10" Value="1" Minimum="1" ValueChanged="OcijeniSlider3_ValueChanged" MaximumTrackColor="Black" MinimumTrackColor="#fbd771" ThumbColor="#f06c5d" Margin="0, 10, 0, 0"/>
+                    <Label HorizontalOptions="Center" FontAttributes="Bold" BindingContext="{x:Reference Name=OcijeniSlider3}" Text="{Binding Path=Value}" FontSize="15"></Label>
+                </StackLayout>
+            </Frame>
+            <!--ocijeni checkbox-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -16,0,-10">
+                    <Label Text="4. Ocijenite svoju ekološku osviještenost od 1 do 5: (*)" TextColor="DarkGray" FontSize="17"/>
+                    <BoxView HeightRequest="1.5" BackgroundColor="DarkGray" Margin="0,-3,0,0"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="1"/>
+                        <CheckBox x:Name="e1" IsChecked="False" Color="#f06c5d" CheckedChanged="e1_CheckedChanged"/>
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="2"/>
+                        <CheckBox x:Name="e2" IsChecked="False" Color="#f06c5d" CheckedChanged="e2_CheckedChanged"/>
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="3"/>
+                        <CheckBox x:Name="e3" IsChecked="False" Color="#f06c5d" CheckedChanged="e3_CheckedChanged"/>
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="4"/>
+                        <CheckBox x:Name="e4" IsChecked="False" Color="#f06c5d" CheckedChanged="e4_CheckedChanged"/>
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="5"/>
+                        <CheckBox x:Name="e5" IsChecked="False" Color="#f06c5d" CheckedChanged="e5_CheckedChanged"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <!--kratki odgovor-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -20, 0, 1">
+                    <Entry x:Name="EntryOdgovor3" Placeholder="5. Kako biste poboljšali izgled okoline? (*)" PlaceholderColor="DarkGray" />
+                </StackLayout>
+            </Frame>
+            <!--komentar-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -20, 0, 1">
+                    <Editor x:Name="EditorKomentar3" Placeholder="6. Ukoliko imate komentar, upišite ga..." AutoSize="Disabled" PlaceholderColor="DarkGray"/>
+                </StackLayout>
+            </Frame>
+
+            <!--button-->
+            <StackLayout Orientation="Vertical" Margin="0, 3, 0, 0">
+                <Button Text="POPUNI" WidthRequest="100" HeightRequest="50" TextColor="White" FontAttributes="Bold" BackgroundColor="#74b384" FontSize="18" Clicked="Button3_Clicked"/>
+            </StackLayout>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LAB2.Models.Ank4" Title="Anketa 3 - Privatna ambulanta">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+
+            <!--da/ne pitanje-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -10, 0, -10">
+                    <Picker x:Name="DaNePicker4" Title="1. Da li ste zadovoljni radnim vremenom ambulante? (*)" TitleColor="DarkGray" ItemsSource="{Binding ListaPitanja7}" ItemDisplayBinding="{Binding Odgovor}" SelectedItem="{Binding Pitanja}" />
+                    <Label BindingContext="{x:Reference Name=DaNePicker4}" Text="{Binding Path=SelectedItem.Odgovor, StringFormat='1. Da li ste zadovoljni radnim vremenom ambulante? {0}'}" FontAttributes="Bold"/>
+
+                </StackLayout>
+            </Frame>
+            <!--odaberi abcd pitanje-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -20, 0, -10" >
+                    <Picker x:Name="AbcdPicker4" Title="2. Kad ste posljednji put imali zakazan pregled? (*)" TitleColor="DarkGray" ItemsSource="{Binding ListaPitanja8}" ItemDisplayBinding="{Binding Abcd}" SelectedItem="{Binding Pitanja}"/>
+                    <Label BindingContext="{x:Reference Name=AbcdPicker4}" Text="{Binding Path=SelectedItem.Abcd, StringFormat='2. Kad ste posljednji put imali zakazan pregled? {0}'}" FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+            <!--ocijeni slider-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -16,0,-10">
+                    <Label Margin="3,0,0,0" Text="3. Ocijenite higijenu zgrade ambulante 1-10:" TextColor="DarkGray" FontSize="18"/>
+
+                    <Slider x:Name="OcijeniSlider4" Maximum="10" Value="1" Minimum="1" ValueChanged="OcijeniSlider4_ValueChanged" MaximumTrackColor="Black" MinimumTrackColor="#fbd771" ThumbColor="#f06c5d" Margin="0, 10, 0, 0"/>
+                    <Label HorizontalOptions="Center" FontAttributes="Bold" BindingContext="{x:Reference Name=OcijeniSlider4}" Text="{Binding Path=Value}" FontSize="15"></Label>
+                </StackLayout>
+            </Frame>
+            <!--ocijeni checkbox-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -16,0,-10">
+                    <Label Text="4. Ocijenite svoje generalno fizičko zdravlje 1-5: (*)" TextColor="DarkGray" FontSize="17"/>
+                    <BoxView HeightRequest="1.5" BackgroundColor="DarkGray" Margin="0,-3,0,0"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="1"/>
+                        <CheckBox x:Name="f1" IsChecked="False" Color="#f06c5d" CheckedChanged="f1_CheckedChanged"/>
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="2"/>
+                        <CheckBox x:Name="f2" IsChecked="False" Color="#f06c5d" CheckedChanged="f2_CheckedChanged"/>
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="3"/>
+                        <CheckBox x:Name="f3" IsChecked="False" Color="#f06c5d" CheckedChanged="f3_CheckedChanged"/>
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="4"/>
+                        <CheckBox x:Name="f4" IsChecked="False" Color="#f06c5d" CheckedChanged="f4_CheckedChanged"/>
+                        <Label Margin="14, 4, -5, 0" TextColor="DarkGray" FontSize="17" Text="5"/>
+                        <CheckBox x:Name="f5" IsChecked="False" Color="#f06c5d" CheckedChanged="f5_CheckedChanged"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <!--kratki odgovor-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -20, 0, 1">
+                    <Entry x:Name="EntryOdgovor4" Placeholder="5. Kako ste prvi put čuli za našu ambulantu?" PlaceholderColor="DarkGray" />
+                </StackLayout>
+            </Frame>
+            <!--komentar-->
+            <Frame>
+                <StackLayout Orientation="Vertical" Margin="0, -20, 0, 1">
+                    <Editor x:Name="EditorKomentar4" Placeholder="6. Ukoliko imate komentar, upišite ga..." AutoSize="Disabled" PlaceholderColor="DarkGray"/>
+                </StackLayout>
+            </Frame>
+
+            <!--button-->
+            <StackLayout Orientation="Vertical" Margin="0, 3, 0, 0">
+                <Button Text="POPUNI" WidthRequest="100" HeightRequest="50" TextColor="White" FontAttributes="Bold" BackgroundColor="#74b384" FontSize="18" Clicked="Button4_Clicked"/>
+            </StackLayout>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
